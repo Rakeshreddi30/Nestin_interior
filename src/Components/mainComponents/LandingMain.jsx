@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence, useAnimation } from "framer-motion";
 import interior from "../../assets/Logo.png";
-import image from "../../assets/interior.png";
+import image from "../../assets/Interior.png";
 const LandingMain = () => {
   // const [animationStage, setAnimationStage] = useState(0);
   // const controls = useAnimation();
