@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
-import interior from "../../assets/interior.png";
+import interior from "../../assets/Interior.png";
 import service from "../../assets/service3.jpg"
 
 const ProjectM = () => {
