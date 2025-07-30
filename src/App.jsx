@@ -1,31 +1,37 @@
 import "./App.css";
-import Landing from "./Components/Landing";
-import LandingMain from "./Components/LandingMain";
-import About from "./Components/mainComponents/About";
+import LandingMain from "./Components/mainComponents/LandingMain";
 import Footer from "./Components/mainComponents/Footer";
-import MainSection from "./Components/mainComponents/MainSection";
-import Nav from "./Components/mainComponents/Nav";
-import Projects from "./Components/mainComponents/Projects";
+import ProjectM from "./Components/mainComponents/ProjectM";
 import Services from "./Components/mainComponents/Services";
-import Motioneffect from "./Components/Motioneffect";
-import Navbar from "./Components/Navbar";
-function App() {
-  return (
-    <>
-      <div className="mx-10 overflow-hidden">
-        {/* <Landing/> */}
-        {/* <Motioneffect/> */}
-        {/* <Navbar/> */}
+import Testimonials from "./Components/mainComponents/Testimonials";
+import Vision from "./Components/mainComponents/Vision";
+import { useState } from "react";
+import Intro from "./Components/mainComponents/Intro";
+import { AnimatePresence } from "framer-motion";
 
-        {/* <Nav/> */}
-        <LandingMain/>
-        {/* <MainSection/> */}
-        <About/>
-        <Services/>
-        <Projects/>
-        <Footer/>
+
+function App() {
+  const[view,setView]=useState(true);
+
+  return (
+    <AnimatePresence mode="wait">
+      <div className="md:mx-10 overflow-hidden">
+        {view ? (
+          <Intro onComplete={()=>setView(false)}/>
+         ) :
+          ( <>
+            <LandingMain/>
+            <Vision/>
+            <Services/>
+            <ProjectM/>
+           <Testimonials/>
+            <Footer/>
+         </> )
+            
+        }
       </div>
-    </>
+    </AnimatePresence>
+  
   );
 }
 

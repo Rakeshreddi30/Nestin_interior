@@ -6,6 +6,13 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        'italiana': ['Italiana', 'serif'],
+        'forum': ['Forum', 'serif'],
+        'saira': ['Saira', 'serif'],
+        'cursive':['"Playwrite AU NSW", cursive'],
+        'roboto':['Roboto Condensed', 'sans-serif'],
+      },
       container :{
         center : true,
         padding : {
