@@ -30,7 +30,7 @@ const Services = () => {
   return (
     <section id="services" className="py-20 px-10">
       <div className="container mx-auto text-center">
-        <div className="grid md:grid-cols-4 place-items-center gap-2">
+        <div className="grid md:grid-cols-[20%_1fr_1fr_1fr] place-items-center gap-2">
           <h2 className="text-4xl font-medium mb-12 font-saira">
             What We Offer
           </h2>

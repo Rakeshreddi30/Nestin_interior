@@ -3,18 +3,19 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { User, Phone, Mail, MapPin, Send } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const ContactDetailsForm = () => {
   const [formData, setFormData] = useState({
     name: '',
     phoneNum: '',
-    hasWhatsApp: false,
     email: '',
     location: ''
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
-
+ const Navigate = useNavigate();
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
     setFormData(prev => ({
@@ -23,15 +24,23 @@ const ContactDetailsForm = () => {
     }));
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     setIsSubmitting(true);
+    try{
+      const res = await axios.post("http://localhost:8081/api/contact/postContact", formData);
+      if(res.status === 200){
+        console.log("Success");
+        Navigate("/success")
+      }
+    }
+    catch(Error){
+      Navigate("/failure")
+      console.log("Sommething went wrong");
+    }
     
     // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    console.log('Form submitted:', formData);
-    alert('Thank you for your message! We\'ll get back to you soon.');
-    
+    // await new Promise(resolve => setTimeout(resolve, 1500));    
     // Reset form
     setFormData({
       name: '',

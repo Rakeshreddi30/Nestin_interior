@@ -14,11 +14,11 @@ const Vision = () => {
     return () => clearTimeout(timer);
   }, []);
   return (
-    <div className="w-full max-w-7xl mx-auto p-6 space-y-8">
+    <div className="w-full max-w-7xl mx-auto p-6 space-y-2 md:space-y-8">
       {/* First Row - Full Width Header */}
       <div className="w-full">
-        <div className="text-center  flex  gap-3 justify-center items-center text-black py-6 px-3 rounded-2xl shadow-md">
-          <h3 className="text-lg md:text-md w-fit text-center text-gray-700 m-4 whitespace-nowrap shrink-0 px-4">
+        <div className="text-center  grid md:grid-cols-[20%_80%]  gap-3 justify-center items-center text-black py-6 px-3 rounded-2xl shadow-sm">
+          <h3 className="text-lg md:text-md w-full text-center text-gray-700 m-4 whitespace-nowrap shrink-0 px-4">
             Our Vision
           </h3>
           <p className="text-2xl md:text-3xl opacity-90  mx-4  font-light">
@@ -29,12 +29,12 @@ const Vision = () => {
       </div>
 
       {/* Second Row - Two Columns */}
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid md:grid-cols-2 gap-4">
         {/* First Column - Image then Info */}
-        <div className="space-y-0 gap-6">
+        <div className="space-y-4">
           {/* Image Row - Vision Image (Top to Bottom reveal animation) */}
           <motion.div
-            className="w-full h-64 md:h-80 mb-6 rounded-xl shadow-lg overflow-hidden hover:shadow-2xl"
+            className="w-full h-64 md:h-auto mb-6 rounded-xl shadow-lg overflow-hidden hover:shadow-2xl"
             initial={{ opacity: 0, scaleY: 0.1 }}
             whileInView={{ opacity: 1, scaleY: 1 }}
             viewport={{once:true}}
@@ -42,7 +42,7 @@ const Vision = () => {
 
             style={{ transformOrigin: "top" }} // mimic reveal from top
           >
-            <div className="w-full h-full flex items-center justify-center">
+            <div className="w-full h-80 flex items-center justify-center">
               <img
                 src={vision1}
                 alt="Interior Design"
@@ -54,7 +54,7 @@ const Vision = () => {
 
           {/* Info Row */}
           <div
-            className={`bg-white p-8 rounded-xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-1000 transform ${
+            className={`bg-white p-4 rounded-xl shadow-lg border border-gray-50 hover:shadow-xl transition-all duration-1000 transform ${
               isVisible
                 ? "translate-y-0 opacity-100"
                 : "translate-y-8 opacity-0"
@@ -81,10 +81,10 @@ const Vision = () => {
         </div>
 
         {/* Second Column - Info then Image */}
-        <div className="space-y-6">
+        <div className="space-y-4">
           {/* Info Row */}
           <div
-            className={`bg-white p-8 rounded-xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-1000 transform ${
+            className={`bg-white p-5 rounded-xl shadow-lg border border-gray-50 hover:shadow-xl transition-all duration-1000 transform ${
               isVisible
                 ? "translate-y-0 opacity-100"
                 : "-translate-y-8 opacity-0"
@@ -111,14 +111,14 @@ const Vision = () => {
 
           {/* Image Row - Excellence Image (Bottom to Top reveal animation) */}
            <motion.div
-            className="w-full h-64 md:h-80 mb-6 rounded-xl shadow-lg overflow-hidden hover:shadow-2xl"
+            className="w-full h-64 md:h-auto mb-6 rounded-xl shadow-lg overflow-hidden hover:shadow-2xl"
             initial={{ opacity: 0, scaleY: 0.1 }}
             whileInView={{ opacity: 1, scaleY: 1 }}
             viewport={{once:true}}
             transition={{ duration: 1, ease: "easeOut" }}
             style={{ transformOrigin: "bottom" }} // mimic reveal from top
           >
-            <div className="w-full h-full flex items-center justify-center">
+            <div className="w-full h-72 flex items-center justify-center">
               <img
                 src={vision2}
                 alt="Interior Design"
