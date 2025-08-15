@@ -18,7 +18,7 @@ const DesignForm = () => {
        e.preventDefault();
        setIsSubmitting(true);
         try{
-           const response =  await axios.post("http://localhost:8081/api/contact/postDesign", designForm);
+           const response =  await axios.post("https://nestin-interior.onrender.com/api/contact/postDesign", designForm);
            setIsSuccess(true);
            setTimeout(()=>setIsSuccess(false),5000);
            console.log(response);

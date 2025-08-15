@@ -28,7 +28,7 @@ const ContactDetailsForm = () => {
     e.preventDefault();
     setIsSubmitting(true);
     try{
-      const res = await axios.post("http://localhost:8081/api/contact/postContact", formData);
+      const res = await axios.post("https://nestin-interior.onrender.com/api/contact/postContact", formData);
       if(res.status === 200){
         console.log("Success");
         Navigate("/success")
