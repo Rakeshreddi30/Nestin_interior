@@ -21,6 +21,9 @@ public class EmailController {
     @Autowired
     private FormService formService;
 
+    // @Value("${EMAIL_PASSWORD}")
+    // private final String emailPassword = Dotenv.load().get("EMAIL_PASSWORD");
+    
     @PostMapping("/postContact")
     public ResponseEntity<String> sendEmail(@RequestBody ContactForm form) {
         // TODO: send email
@@ -32,6 +35,7 @@ public class EmailController {
     }
     @GetMapping("/get")
     public String name(){
+        System.out.println("EMAIL_PASSWORD from env: ");
         return "Hi  Rakesh";
     }
     
