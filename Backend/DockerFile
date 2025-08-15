@@ -1,0 +1,18 @@
+# Step 1: Use Maven with Java 21 to build the JAR
+FROM maven:3.9.6-eclipse-temurin-21 AS build
+WORKDIR /app
+COPY pom.xml .
+COPY src ./src
+RUN mvn clean package -DskipTests
+
+# Step 2: Use lightweight Java 21 runtime
+FROM eclipse-temurin:21-jdk-alpine
+WORKDIR /app
+COPY --from=build /app/target/*.jar app.jar
+
+# Render sets PORT dynamically; read it from env variable
+ENV PORT=8081
+EXPOSE 8081
+
+# Run the application
+ENTRYPOINT ["java", "-jar", "app.jar"]
