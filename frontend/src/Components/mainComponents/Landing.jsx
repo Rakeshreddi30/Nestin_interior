@@ -85,7 +85,7 @@ const Landing = () => {
 
         {/* Content Grid */}
         <div className="relative max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 z-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-16 items-center">
             {/* Left Column: Content */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
