@@ -13,7 +13,7 @@ import com.nestin.interior.dto.ContactForm;
 import com.nestin.interior.dto.DesignForm;
 import com.nestin.interior.services.FormService;
 
-@CrossOrigin(origins = "http://localhost:5173/")
+@CrossOrigin(origins = "https://nestin-design.vercel.app/")
 @RestController
 @RequestMapping("/api/contact")
 public class EmailController {
@@ -21,10 +21,7 @@ public class EmailController {
     @Autowired
     private FormService formService;
 
-    // @Value("${EMAIL_PASSWORD}")
-    // private final String emailPassword = Dotenv.load().get("EMAIL_PASSWORD");
-    
-    @PostMapping("/postContact")
+   @PostMapping("/postContact")
     public ResponseEntity<String> sendEmail(@RequestBody ContactForm form) {
         // TODO: send email
        return formService.sendEmail(form);
